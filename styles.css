@@ -1,0 +1,17 @@
+body, form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+form {
+  margin: 0;
+}
+
+.links {
+  margin-top: 48px;
+}
+
+.grecaptcha-badge {
+  /* display: none; */
+}

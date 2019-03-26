@@ -1,0 +1,22 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node local-server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "selenium:install": "selenium-standalone install",
+    "selenium:start": "selenium-standalone start & echo $! > selenium.pid",
+    "selenium:stop": "kill $(< selenium.pid); rm selenium.pid",
+    "nightwatch": "nightwatch -c ./nightwatch.conf.js -e chrome",
+    "bot": "npm run selenium:start ; sleep 2 ; npm run nightwatch ; npm run selenium:stop"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nightwatch": "^1.0.18",
+    "selenium-standalone": "^6.15.4"
+  }
+}

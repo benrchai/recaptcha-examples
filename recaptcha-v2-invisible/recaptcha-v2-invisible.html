@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>reCAPTCHA v2 Invisible</title>
+
+    <link href="../styles.css" rel="stylesheet">
+
+    <script>
+      function onSubmit(token) {
+        console.log('token', token);
+        alert("Token is: " + token);
+      }
+    </script>
+    
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
+  <body>
+    <h1>Welcome to the reCAPTCHA V2 Invisible Demo!</h1>
+    <button class="g-recaptcha" data-sitekey="6LfX25kUAAAAAPT4j2lWNHPal5vGlNZHG3AZPiKM" data-callback='onSubmit'>Party</button>
+    <div class="links">
+      <a href="http://localhost:3000/recaptcha-v2-checkbox-explicit.html">V2 Invisible Demo</a>
+      <a href="http://localhost:3000/recaptcha-v2-checkbox.html">V2 Checkbox Demo</a>
+      <a href="http://localhost:3000/recaptcha-v3.html">V3 Demo</a>
+    </div>
+  </body>
+</html>

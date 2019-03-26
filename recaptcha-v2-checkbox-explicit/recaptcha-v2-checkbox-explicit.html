@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>reCAPTCHA v2 Checkbox (Explicit Render)</title>
+
+    <link href="../styles.css" rel="stylesheet">
+
+    <script>
+      var onloadCallback = function() {
+        grecaptcha.render('my_recaptcha_element', {
+          'sitekey' : '6Lfj_pYUAAAAACSWsSvM7-3_GIdkopTUiCGJSLc4'
+        });
+      };
+      function onSubmit() {
+        var token = grecaptcha.getResponse();
+        console.log('token', token);
+        alert("Token is: " + token);
+      }
+    </script>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onloadCallback" async defer></script>
+  </head>
+  <body>
+
+    <h1>Welcome to the reCAPTCHA V2 Checkbox Demo!</h1>
+
+    <form action="javascript:onSubmit();">
+      <div id="my_recaptcha_element"></div>      
+      <br>
+      <input type="submit" value="Holla at ya boi some more">
+    </form>
+    
+    <div class="links">
+      <a href="http://localhost:3000/recaptcha-v2-checkbox.html">V2 Checkbox Checkbox</a>
+      <a href="http://localhost:3000/recaptcha-v2-invisible.html">V2 Invisible Demo</a>
+      <a href="http://localhost:3000/recaptcha-v3.html">V3 Demo</a>
+    </div>
+  </body>
+</html>
