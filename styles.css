@@ -13,5 +13,9 @@ form {
 }
 
 .grecaptcha-badge {
-  /* display: none; */
+  /* visibility: hidden; */
+}
+
+#grecaptcha_v3 {
+  visibility: hidden;
 }

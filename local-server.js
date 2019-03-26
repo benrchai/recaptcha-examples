@@ -23,6 +23,11 @@ app.get('/recaptcha-v3.html', function (req, res) {
   res.sendFile(`${__dirname}/recaptcha-v3/recaptcha-v3.html`);
 });
 
+app.get('/recaptcha-v3-explicit.html', function (req, res) {
+  res.set('Content-Type', 'text/html');
+  res.sendFile(`${__dirname}/recaptcha-v3-explicit/recaptcha-v3-explicit.html`);
+});
+
 app.get('/styles.css', function (req, res) {
   res.set('Content-Type', 'text/css');
   res.sendFile(`${__dirname}/styles.css`);
