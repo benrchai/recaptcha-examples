@@ -1,56 +1,22 @@
-<html>
-  <head>
-    <title>reCAPTCHA v3</title>
+<script>
+  var grecaptchaId;
+  var errorHandling = function(err) { console.err('reCAPTCHA Error:', err) }
+  var onloadCallback = function() {
+    grecaptchaId = grecaptcha.render('recaptcha_placeholder', {
+      'sitekey' : '6Lcp3pkUAAAAAMgnmiES_TVUII3AhipGN_byF8iS',
+      'size': 'invisible',
+      'expired-callback': errorHandling,
+      'error-callback': errorHandling,
+    });
+  };
+</script>
 
-    <link href="../styles.css" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onloadCallback"></script>
 
-    <script>
-        var render1;
-        var onloadCallback = function() {
-          render1 = grecaptcha.render('grecaptcha_v3', {
-            'sitekey' : '6Lcp3pkUAAAAAMgnmiES_TVUII3AhipGN_byF8iS',
-            'size': 'invisible'
-          });
-          console.log()
-        };
-        function onSubmit() {
-          console.log('token', token);
-          console.log('token2', token2);
-          alert("Token is: " + token);
-        }
-      </script>
+<script>
+  grecaptcha.execute(grecaptchaId, {action: 'pageload'}).then(function(token) {
+      console.log('pageload reCAPTCHA token', token);
+    });
+</script>
 
-    <script src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onloadCallback"></script>
-
-    <script>
-      grecaptcha.ready(function() {
-        grecaptcha.execute(render1, {action: 'pageload'}).then(function(token) {
-          console.log('pageload', token);
-        });
-      });
-
-      function doSomething() { 
-        grecaptcha.ready(function() {
-          grecaptcha.execute(render1, {action: 'something'}).then(function(token) {
-            console.log('doSomething', token);
-          });
-        });
-        
-        alert("(wake me up inside)");
-      }
-    </script>
-  </head>
-  <body>
-    <h1>Welcome to the reCAPTCHA V3 Demo!</h1>
-    <div id="grecaptcha_v3"></div>
-    <button onclick="doSomething()">wake me up</button>
-
-    <div class="links">
-      <a href="http://localhost:3000/recaptcha-v2-checkbox.html">V2 Checkbox Explicit</a>
-      <a href="http://localhost:3000/recaptcha-v2-checkbox-explicit.html">V2 Checkbox Explicit</a>
-      <a href="http://localhost:3000/recaptcha-v2-invisible.html">V2 Invisible Demo</a>
-      <a href="http://localhost:3000/recaptcha-v3.html">V3 Demo</a>
-      <a href="http://localhost:3000/recaptcha-v3-explicit.html">V3 Explicit Demo</a>
-    </div>
-  </body>
-</html>
+<div id="recaptcha_placeholder"></div>
